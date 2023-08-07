@@ -348,8 +348,8 @@ impl <
 #[embassy_executor::main]
 async fn main(_spawner: Spawner) -> ! {
     let p = embassy_stm32::init(Default::default());
-    let stbs = [p.PB9.degrade(), p.PB8.degrade()];
-    let mut pin_setter = Connector::new(stbs, p.PB7, p.PB6);
+    let stb = [p.PB8.degrade()];
+    let mut pin_setter = Connector::new(stb, p.PB7, p.PB6);
     let mut led = Output::new(p.PC13, Level::Low, Speed::Low);  
 
         loop {
